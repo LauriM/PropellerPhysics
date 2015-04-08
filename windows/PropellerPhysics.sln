@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PropellerPhysics", "PropellerPhysics\PropellerPhysics.vcxproj", "{E725852A-9BBA-47DF-8722-0C588C85A8EE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example", "Example\Example.vcxproj", "{B3F21E4F-45D0-406C-9962-209C64F4DF8C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E725852A-9BBA-47DF-8722-0C588C85A8EE} = {E725852A-9BBA-47DF-8722-0C588C85A8EE}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E725852A-9BBA-47DF-8722-0C588C85A8EE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E725852A-9BBA-47DF-8722-0C588C85A8EE}.Debug|Win32.Build.0 = Debug|Win32
+		{E725852A-9BBA-47DF-8722-0C588C85A8EE}.Release|Win32.ActiveCfg = Release|Win32
+		{E725852A-9BBA-47DF-8722-0C588C85A8EE}.Release|Win32.Build.0 = Release|Win32
+		{B3F21E4F-45D0-406C-9962-209C64F4DF8C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B3F21E4F-45D0-406C-9962-209C64F4DF8C}.Debug|Win32.Build.0 = Debug|Win32
+		{B3F21E4F-45D0-406C-9962-209C64F4DF8C}.Release|Win32.ActiveCfg = Release|Win32
+		{B3F21E4F-45D0-406C-9962-209C64F4DF8C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
