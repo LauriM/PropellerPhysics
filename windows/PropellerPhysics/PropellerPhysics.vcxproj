@@ -66,6 +66,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysDebugDrawInterface.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysMatrix.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysVector.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysWorld.h" />
