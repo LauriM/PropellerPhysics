@@ -2,6 +2,7 @@
 #define PPHYSWORLD_H
 
 #include <PropellerPhysics/pPhysVector.h>
+#include <PropellerPhysics/pPhysObject.h>
 
 #include <vector>
 
@@ -17,11 +18,15 @@ namespace pPhys {
 		bool debugDrawEnabled;
 		DebugDrawInterface *debugDraw;
 
+	private:
+		std::vector<Object*> objects;
+
 	public:
 		World(Vec2 gravity);
 
+		void addObject(Object *obj);
+		void removeObject(Object *obj);
 		void step(float delta);
-
 		void drawWorld();
 
 		void setDebugDrawInterface(DebugDrawInterface *debugDraw) { this->debugDraw = debugDraw; }

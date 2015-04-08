@@ -9,6 +9,24 @@ namespace pPhys
 		, debugDraw(NULL)
 	{ }
 
+	void World::addObject(Object *obj)
+	{
+		objects.push_back(obj);
+	}
+
+	void World::removeObject(Object *obj)
+	{
+		//TODO: remove queue could improve the performance (?)
+		for (unsigned i = 0; i < objects.size(); ++i)
+		{
+			if (objects[i] == obj)
+			{
+				objects.erase(objects.begin() + i);
+
+				return;
+			}
+		}
+	}
 
 	void World::step(float delta)
 	{
@@ -17,14 +35,26 @@ namespace pPhys
 		// 2) Resolve collisions
 		// 3) debug draw, if enabled
 
-	}
+		for (unsigned i = 0; i < objects.size(); ++i)
+		{
+			Vec2 acceleration = gravity;
 
+			//TODO: handle impulse to acceleration
+
+			objects[i]->velocity += acceleration;
+
+			objects[i]->position += objects[i]->velocity;
+		}
+	}
 
 	void World::drawWorld()
 	{
 		if (debugDraw == NULL)
 			return;
 
-		debugDraw->positionEcho(Vec2(666, 12));
+		for (unsigned i = 0; i < objects.size(); ++i)
+		{
+			debugDraw->positionEcho(objects[i]->getPosition());
+		}
 	}
 }

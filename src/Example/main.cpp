@@ -14,7 +14,17 @@ int main()
 
 	world->setDebugDrawInterface(new TextDebugDraw());
 
-	world->drawWorld();
+	pPhys::Object *ball = new pPhys::Object();
+
+	ball->setPosition(pPhys::Vec2(0.f, 100.f));
+
+	world->addObject(ball);
+
+	for (unsigned i = 0; i < 60; ++i)
+	{
+		world->step(0.1);
+		world->drawWorld();
+	}
 
 	return 0;
 }
