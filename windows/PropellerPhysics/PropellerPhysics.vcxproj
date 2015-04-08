@@ -66,7 +66,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysMatrix.h" />
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysVector.h" />
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysWorld.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\PropellerPhysics.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\PropellerPhysics\pPhysWorld.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

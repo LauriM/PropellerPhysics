@@ -68,6 +68,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\Example\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PropellerPhysics\PropellerPhysics.vcxproj">
+      <Project>{e725852a-9bba-47df-8722-0c588c85a8ee}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
