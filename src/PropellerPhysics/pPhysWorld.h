@@ -14,6 +14,8 @@ namespace pPhys {
 
 	public:
 		World(Vec2 gravity);
+
+		void step(float delta);
 	};
 
 }
