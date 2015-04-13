@@ -26,5 +26,7 @@ int main()
 		world->drawWorld();
 	}
 
+	std::cin.get();
+
 	return 0;
 }
