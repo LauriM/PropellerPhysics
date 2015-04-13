@@ -10,11 +10,13 @@ namespace pPhys {
 	private:
 		Vec2 position;
 		Vec2 velocity;
+		bool kinematic;
 
 	public:
 		Object()
 			: position(Vec2(0, 0))
 			, velocity(Vec2(0, 0))
+			, kinematic(false)
 		{ }
 
 		// Allows direct access
@@ -27,6 +29,9 @@ namespace pPhys {
 
 		const Vec2 &getVelocity() const { return velocity; }
 		void setVelocity(const Vec2 &vel) { velocity = vel; }
+
+		const bool &isKinematic() const { return kinematic; }
+		void setKinematic(const bool k) { kinematic = k; }
 	};
 
 }

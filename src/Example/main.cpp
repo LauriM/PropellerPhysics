@@ -17,6 +17,8 @@ int main()
 	pPhys::Object *ball = new pPhys::Object();
 
 	ball->setPosition(pPhys::Vec2(0.f, 100.f));
+	ball->setVelocity(pPhys::Vec2(5.f, 0.f));
+	ball->setKinematic(false);
 
 	world->addObject(ball);
 

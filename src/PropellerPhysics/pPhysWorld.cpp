@@ -33,6 +33,7 @@ namespace pPhys
 	{
 		// Step is done in following steps
 		// 1) Apply impulses/velocities
+		// 2) Check for collisions
 		// 2) Resolve collisions
 		// 3) debug draw, if enabled
 
@@ -44,7 +45,8 @@ namespace pPhys
 
 			objects[i]->velocity += acceleration;
 
-			objects[i]->position += objects[i]->velocity;
+			if (!objects[i]->kinematic)
+				objects[i]->position += objects[i]->velocity;
 		}
 	}
 
@@ -58,4 +60,5 @@ namespace pPhys
 			debugDraw->positionEcho(objects[i]->getPosition());
 		}
 	}
+
 }
