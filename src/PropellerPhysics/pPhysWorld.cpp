@@ -1,3 +1,4 @@
+#include <PropellerPhysics/precompiled.h>
 #include <PropellerPhysics/pPhysWorld.h>
 #include <PropellerPhysics/pPhysDebugDrawInterface.h>
 
