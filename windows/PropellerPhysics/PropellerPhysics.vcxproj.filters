@@ -28,6 +28,9 @@
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysObject.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\PropellerPhysics\precompiled.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysWorld.cpp">

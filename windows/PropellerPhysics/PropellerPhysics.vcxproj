@@ -71,6 +71,7 @@
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysObject.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysVector.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysWorld.h" />
+    <ClInclude Include="..\..\src\PropellerPhysics\precompiled.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\PropellerPhysics.h" />
   </ItemGroup>
   <ItemGroup>

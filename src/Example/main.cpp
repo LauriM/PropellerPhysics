@@ -26,7 +26,9 @@ int main()
 		world->drawWorld();
 	}
 
+#ifdef _WIN32
 	std::cin.get();
+#endif
 
 	return 0;
 }
