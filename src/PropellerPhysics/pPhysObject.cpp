@@ -4,14 +4,4 @@
 
 namespace pPhys {
 
-	bool Object::checkCollision(Object *other)
-	{
-		return shape->checkCollision(other->shape);
-	}
-
-	void Object::resolveCollision(Object *other)
-	{
-
-	}
-
 }

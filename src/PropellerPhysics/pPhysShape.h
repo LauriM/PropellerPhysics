@@ -14,7 +14,7 @@ namespace pPhys {
 		Object *parent;
 
 	public:
-		virtual bool checkCollision(Shape *other) = 0;
+		virtual ~Shape() { }
 
 		void setParent(Object *p) { parent = p; }
 		Object *getParent() { return parent; }

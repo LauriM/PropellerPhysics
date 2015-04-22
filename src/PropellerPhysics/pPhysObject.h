@@ -25,12 +25,6 @@ namespace pPhys {
 			, mass(0)
 		{ }
 
-		// Does the two objects collide?
-		bool checkCollision(Object *other);
-
-		// Resolve collision between these two objects
-		void resolveCollision(Object *other);
-
 		// Allows direct access
 		friend class World;
 
@@ -52,6 +46,8 @@ namespace pPhys {
 			shape = s; 
 			shape->setParent(this);
 		}
+
+		Shape *getShape() { return shape; }
 	};
 
 }

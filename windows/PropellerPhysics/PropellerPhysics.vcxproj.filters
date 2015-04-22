@@ -40,18 +40,15 @@
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysLineShape.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysCollisionChecker.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\PropellerPhysics\pPhysObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\PropellerPhysics\pPhysLineShape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\PropellerPhysics\pPhysCircleShape.cpp">
+    <ClCompile Include="..\..\src\PropellerPhysics\pPhysCollisionChecker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
