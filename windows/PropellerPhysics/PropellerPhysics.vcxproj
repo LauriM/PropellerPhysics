@@ -78,7 +78,7 @@
     <ClInclude Include="..\..\src\PropellerPhysics\PropellerPhysics.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\PropellerPhysics\pPhusCircleShape.cpp" />
+    <ClCompile Include="..\..\src\PropellerPhysics\pPhysCircleShape.cpp" />
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysLineShape.cpp" />
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysObject.cpp" />
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysWorld.cpp" />
