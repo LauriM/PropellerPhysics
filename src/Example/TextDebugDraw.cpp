@@ -8,3 +8,8 @@ void TextDebugDraw::positionEcho(const pPhys::Vec2 &pos)
 }
 
 void TextDebugDraw::drawLine(const pPhys::Vec2 &start, const pPhys::Vec2 &end) { }
+
+void TextDebugDraw::logWarning(const std::string msg)
+{
+	std::cout << "[WARNING] " << msg.c_str() << "\n";
+}

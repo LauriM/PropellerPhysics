@@ -66,14 +66,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysCircleShape.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysDebugDrawInterface.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysMatrix.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysObject.h" />
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysShape.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysVector.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysWorld.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\PropellerPhysics.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\PropellerPhysics\pPhusCircleShape.cpp" />
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysWorld.cpp" />
   </ItemGroup>
   <ItemGroup>

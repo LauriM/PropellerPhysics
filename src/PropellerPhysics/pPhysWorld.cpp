@@ -11,6 +11,12 @@ namespace pPhys
 
 	void World::addObject(Object *obj)
 	{
+		if (obj->shape == nullptr)
+		{
+			debugDraw->logWarning("Object doesn't have shape! Ignoring addObject()");
+			return;
+		}
+
 		objects.push_back(obj);
 	}
 
@@ -37,6 +43,9 @@ namespace pPhys
 
 		for (unsigned i = 0; i < objects.size(); ++i)
 		{
+			if (objects[i]->isKinematic())
+				continue; // velocities are not calculated for kinematic objects
+
 			Vec2 acceleration = gravity;
 
 			//TODO: handle impulse to acceleration

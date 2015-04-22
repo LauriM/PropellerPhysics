@@ -3,6 +3,8 @@
 
 #include <PropellerPhysics/pPhysVector.h>
 
+#include <string>
+
 namespace pPhys {
 
 	class DebugDrawInterface
@@ -13,6 +15,8 @@ namespace pPhys {
 
 		// Draw a line
 		virtual void drawLine(const Vec2 &start, const Vec2 &end) = 0;
+
+		virtual void logWarning(const std::string msg) = 0;
 
 		virtual void drawBox(const Vec2 &pos, const Vec2 &size)
 		{

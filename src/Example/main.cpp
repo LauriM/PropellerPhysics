@@ -14,11 +14,25 @@ int main()
 
 	world->setDebugDrawInterface(new TextDebugDraw());
 
-	pPhys::Object *ball = new pPhys::Object();
+	{
+		pPhys::Object *ball = new pPhys::Object();
 
-	ball->setPosition(pPhys::Vec2(0.f, 100.f));
+		ball->setShape(new pPhys::CircleShape(1));
 
-	world->addObject(ball);
+		ball->setPosition(pPhys::Vec2(0.f, 100.f));
+
+		world->addObject(ball);
+	}
+
+	{
+		pPhys::Object *ball = new pPhys::Object();
+
+		ball->setShape(new pPhys::CircleShape(1));
+		ball->setKinematic(true);
+		ball->setPosition(pPhys::Vec2(0.f, 50.f));
+
+		world->addObject(ball);
+	}
 
 	for (unsigned i = 0; i < 60; ++i)
 	{

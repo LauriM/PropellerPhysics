@@ -28,9 +28,18 @@
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysObject.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysShape.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysCircleShape.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\PropellerPhysics\pPhusCircleShape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
