@@ -13,7 +13,7 @@ namespace pPhys {
 	class CollisionChecker
 	{
 	private:
-		// Avaivable shapes:
+		// Available shapes:
 		//   * Line
 		//   * Circle
 

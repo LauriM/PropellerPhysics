@@ -16,7 +16,7 @@ namespace pPhys {
 			: normal(normal)
 		{ }
 
-		bool checkCollision(Shape *other);
+		float getNormal() { return normal; }
 	};
 
 }

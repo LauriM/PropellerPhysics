@@ -44,7 +44,7 @@ int main()
 		// horizontal line at origo
 		ground->setShape(new pPhys::LineShape(0));
 		ground->setKinematic(true);
-		ground->setPosition(pPhys::Vec2(0.f, 0.f));
+		ground->setPosition(pPhys::Vec2(0.f, 1.f));
 
 		world->addObject(ground);
 	}
