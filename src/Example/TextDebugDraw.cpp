@@ -1,6 +1,7 @@
+#include <iostream>
+#include <cmath>
 #include "TextDebugDraw.h"
 
-#include <iostream>
 
 void TextDebugDraw::positionEcho(const pPhys::Vec2 &pos)
 {

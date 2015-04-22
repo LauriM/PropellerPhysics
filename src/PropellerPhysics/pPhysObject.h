@@ -12,7 +12,7 @@ namespace pPhys {
 		Vec2 position;
 		Vec2 velocity;
 		bool kinematic;
-		
+
 		Shape *shape;
 
 	public:

@@ -15,11 +15,13 @@ int main()
 	world->setDebugDrawInterface(new TextDebugDraw());
 
 	{
-		pPhys::Object *ball = new pPhys::Object();
+	pPhys::Object *ball = new pPhys::Object();
 
 		ball->setShape(new pPhys::CircleShape(1));
 
-		ball->setPosition(pPhys::Vec2(0.f, 100.f));
+	ball->setPosition(pPhys::Vec2(0.f, 100.f));
+	ball->setVelocity(pPhys::Vec2(5.f, 0.f));
+	ball->setKinematic(false);
 
 		world->addObject(ball);
 	}
@@ -31,7 +33,7 @@ int main()
 		ball->setKinematic(true);
 		ball->setPosition(pPhys::Vec2(0.f, 50.f));
 
-		world->addObject(ball);
+	world->addObject(ball);
 	}
 
 	for (unsigned i = 0; i < 60; ++i)
@@ -39,6 +41,10 @@ int main()
 		world->step(0.1);
 		world->drawWorld();
 	}
+
+#ifdef _WIN32
+	std::cin.get();
+#endif
 
 	return 0;
 }
