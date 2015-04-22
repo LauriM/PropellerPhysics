@@ -29,16 +29,20 @@ namespace pPhys {
 		friend class World;
 
 		/* getters & setters */
-		const Vec2 &getPosition() const { return position; }
+		Vec2 &getPosition() { return position; }
 		void setPosition(const Vec2 &pos) { position = pos; }
 
-		const Vec2 &getVelocity() const { return velocity; }
+		Vec2 &getVelocity() { return velocity; }
 		void setVelocity(const Vec2 &vel) { velocity = vel; }
 
 		const bool &isKinematic() const { return kinematic; }
 		void setKinematic(const bool &k) { kinematic = k; }
 
-		void setShape(Shape *s) { shape = s; }
+		void setShape(Shape *s) 
+		{ 
+			shape = s; 
+			shape->setParent(this);
+		}
 	};
 
 }

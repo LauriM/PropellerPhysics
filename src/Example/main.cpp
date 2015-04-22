@@ -19,9 +19,9 @@ int main()
 
 		ball->setShape(new pPhys::CircleShape(1));
 
-	ball->setPosition(pPhys::Vec2(0.f, 100.f));
-	ball->setVelocity(pPhys::Vec2(5.f, 0.f));
-	ball->setKinematic(false);
+		ball->setPosition(pPhys::Vec2(0.f, 100.f));
+		ball->setVelocity(pPhys::Vec2(0.f, 15.f));
+		ball->setKinematic(false);
 
 		world->addObject(ball);
 	}
@@ -31,9 +31,9 @@ int main()
 
 		ball->setShape(new pPhys::CircleShape(1));
 		ball->setKinematic(true);
-		ball->setPosition(pPhys::Vec2(0.f, 50.f));
+		ball->setPosition(pPhys::Vec2(0.f, 48.f));
 
-	world->addObject(ball);
+		world->addObject(ball);
 	}
 
 	for (unsigned i = 0; i < 60; ++i)

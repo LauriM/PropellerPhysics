@@ -11,12 +11,14 @@ namespace pPhys {
 		float radius;
 
 	private:
-		bool circleCollision(const CircleShape *other);
+		bool circleCollision(CircleShape *other);
 
 	public:
 		CircleShape(float radius);
 
 		bool checkCollision(Shape *other);
+
+		float getRadius() { return radius; }
 	};
 
 }

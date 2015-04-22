@@ -18,6 +18,8 @@ namespace pPhys {
 		bool debugDrawEnabled;
 		DebugDrawInterface *debugDraw;
 
+		unsigned substepCount; //TODO: create setter/getter for this
+
 	private:
 		std::vector<Object*> objects;
 

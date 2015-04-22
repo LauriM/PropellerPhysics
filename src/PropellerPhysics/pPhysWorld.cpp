@@ -8,13 +8,14 @@ namespace pPhys
 	World::World(Vec2 gravity)
 		: gravity(gravity)
 		, debugDraw(NULL)
+		, substepCount(25)
 	{ }
 
 	void World::addObject(Object *obj)
 	{
 		if (obj->shape == nullptr)
 		{
-			debugDraw->logWarning("Object doesn't have shape! Ignoring addObject()");
+			debugDraw->logWarning("Object doesn't have a shape! Ignoring addObject()");
 			return;
 		}
 
@@ -65,13 +66,37 @@ namespace pPhys
 
 			for (unsigned a = 0; a < objects.size(); ++a)
 			{
+				if (objects[i]->isKinematic())
+					continue; // collision is handled the other way
+
 				if (objects[i] == objects[a])
 					continue;
 
-				bool hit = objects[i]->resolveCollision(objects[a]);
+				//SubStep to check for a possible collision
+				float step = delta / substepCount;
 
-				if (hit == true)
-					debugDraw->logDebug("hit!");
+				bool hit;
+				Vec2 startPosObjectI = objects[i]->getPosition();
+				Vec2 startPosObjectA = objects[a]->getPosition();
+
+				for (float t = 0; t < delta; t += step) //step < delta ok ?
+				{
+					// move the objects 
+					objects[i]->setPosition(objects[i]->getPosition() + objects[i]->getVelocity() / substepCount);
+					objects[a]->setPosition(objects[a]->getPosition() + objects[a]->getVelocity() / substepCount);
+
+					// check for collision during this substep
+					hit = objects[i]->resolveCollision(objects[a]);
+
+					if (hit == true)
+					{
+						debugDraw->logDebug(std::string("hit!"));
+					}
+				}
+
+				// return objects to the positions
+				objects[i]->setPosition(startPosObjectI);
+				objects[a]->setPosition(startPosObjectA);
 			}
 		}
 

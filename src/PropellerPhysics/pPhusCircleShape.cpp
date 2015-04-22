@@ -1,5 +1,6 @@
 #include <PropellerPhysics/precompiled.h>
 #include <PropellerPhysics/pPhysCircleShape.h>
+#include <PropellerPhysics/pPhysObject.h>
 
 namespace pPhys {
 
@@ -20,9 +21,16 @@ namespace pPhys {
 		return false;
 	}
 
-	bool CircleShape::circleCollision(const CircleShape *other)
+	bool CircleShape::circleCollision(CircleShape *other)
 	{
-		return false;
+		Vec2 len = other->getParent()->getPosition();
+		len -= getParent()->getPosition();
+
+		float lenght = len.getLenght();
+
+		std::cout << "dist: " << lenght << "\n";
+
+		return (lenght - other->getRadius() - radius) < 0;
 	}
 
 }
