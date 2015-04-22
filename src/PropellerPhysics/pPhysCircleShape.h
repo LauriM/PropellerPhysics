@@ -11,7 +11,7 @@ namespace pPhys {
 		float radius;
 
 	private:
-		bool circleCollision(CircleShape *other);
+		bool circleToCircleCollision(CircleShape *other);
 
 	public:
 		CircleShape(float radius);

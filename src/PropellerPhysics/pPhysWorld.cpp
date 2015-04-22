@@ -86,10 +86,11 @@ namespace pPhys
 					objects[a]->setPosition(objects[a]->getPosition() + objects[a]->getVelocity() / substepCount);
 
 					// check for collision during this substep
-					hit = objects[i]->resolveCollision(objects[a]);
+					hit = objects[i]->checkCollision(objects[a]);
 
 					if (hit == true)
 					{
+						objects[i]->resolveCollision(objects[a]); // recalculates the velocities
 						debugDraw->logDebug(std::string("hit!"));
 					}
 				}

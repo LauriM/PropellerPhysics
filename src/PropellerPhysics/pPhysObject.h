@@ -12,6 +12,7 @@ namespace pPhys {
 		Vec2 position;
 		Vec2 velocity;
 		bool kinematic;
+		float mass;
 
 		Shape *shape;
 
@@ -21,9 +22,14 @@ namespace pPhys {
 			, velocity(Vec2(0, 0))
 			, kinematic(false)
 			, shape(nullptr)
+			, mass(0)
 		{ }
 
-		bool resolveCollision(Object *other);
+		// Does the two objects collide?
+		bool checkCollision(Object *other);
+
+		// Resolve collision between these two objects
+		void resolveCollision(Object *other);
 
 		// Allows direct access
 		friend class World;
@@ -34,6 +40,9 @@ namespace pPhys {
 
 		Vec2 &getVelocity() { return velocity; }
 		void setVelocity(const Vec2 &vel) { velocity = vel; }
+
+		float getMass() { return mass; }
+		void setMass(const float &m) { mass = m; }
 
 		const bool &isKinematic() const { return kinematic; }
 		void setKinematic(const bool &k) { kinematic = k; }

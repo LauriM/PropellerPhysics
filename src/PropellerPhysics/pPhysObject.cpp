@@ -4,13 +4,14 @@
 
 namespace pPhys {
 
-	bool Object::resolveCollision(Object *other)
+	bool Object::checkCollision(Object *other)
 	{
-		//TODO: increment the velocities temporary
-
 		return shape->checkCollision(other->shape);
+	}
 
-		//TODO: if collision ^^ -> setup new velocities and positions
+	void Object::resolveCollision(Object *other)
+	{
+
 	}
 
 }
