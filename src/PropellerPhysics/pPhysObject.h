@@ -23,11 +23,12 @@ namespace pPhys {
 			, shape(nullptr)
 		{ }
 
+		bool resolveCollision(Object *other);
+
 		// Allows direct access
 		friend class World;
 
 		/* getters & setters */
-
 		const Vec2 &getPosition() const { return position; }
 		void setPosition(const Vec2 &pos) { position = pos; }
 

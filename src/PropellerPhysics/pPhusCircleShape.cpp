@@ -1,3 +1,4 @@
+#include <PropellerPhysics/precompiled.h>
 #include <PropellerPhysics/pPhysCircleShape.h>
 
 namespace pPhys {
@@ -21,7 +22,7 @@ namespace pPhys {
 
 	bool CircleShape::circleCollision(const CircleShape *other)
 	{
-		return true;
+		return false;
 	}
 
 }

@@ -17,6 +17,7 @@ namespace pPhys {
 		virtual void drawLine(const Vec2 &start, const Vec2 &end) = 0;
 
 		virtual void logWarning(const std::string msg) = 0;
+		virtual void logDebug(const std::string msg) = 0;
 
 		virtual void drawBox(const Vec2 &pos, const Vec2 &size)
 		{

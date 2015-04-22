@@ -43,6 +43,7 @@ namespace pPhys
 		// 2) Resolve collisions
 		// 3) debug draw, if enabled
 
+		// Calculate velocities
 		for (unsigned i = 0; i < objects.size(); ++i)
 		{
 			if (objects[i]->isKinematic())
@@ -54,8 +55,33 @@ namespace pPhys
 
 			objects[i]->velocity += acceleration;
 
-			if (!objects[i]->kinematic)
-				objects[i]->position += objects[i]->velocity;
+			objects[i]->position += objects[i]->velocity;
+		}
+
+		// Check for collisions (before moving the objects)
+		for (unsigned i = 0; i < objects.size(); ++i)
+		{
+			//TODO: QuadTree or similar optimization would help here
+
+			for (unsigned a = 0; a < objects.size(); ++a)
+			{
+				if (objects[i] == objects[a])
+					continue;
+
+				bool hit = objects[i]->resolveCollision(objects[a]);
+
+				if (hit == true)
+					debugDraw->logDebug("hit!");
+			}
+		}
+
+		// Apply velocities
+		for (unsigned i = 0; i < objects.size(); ++i)
+		{
+			if (objects[i]->isKinematic())
+				continue; // velocities are not calculated for kinematic objects
+
+			objects[i]->position += objects[i]->velocity;
 		}
 	}
 

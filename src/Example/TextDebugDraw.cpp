@@ -14,3 +14,8 @@ void TextDebugDraw::logWarning(const std::string msg)
 {
 	std::cout << "[WARNING] " << msg.c_str() << "\n";
 }
+
+void TextDebugDraw::logDebug(const std::string msg)
+{
+	std::cout << "*DEBUG* " << msg.c_str() << "\n";
+}
