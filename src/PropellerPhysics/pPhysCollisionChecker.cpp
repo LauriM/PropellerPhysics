@@ -57,6 +57,8 @@ namespace pPhys {
 
 		float dist = circlePos.x * lineShape->normal.x + circlePos.y * lineShape->normal.y + lineShape->distance;
 
+		dist -= circleShape->getRadius();
+
 		//std::cout << "dist: " << dist << "\n";
 
 		return dist < 0;

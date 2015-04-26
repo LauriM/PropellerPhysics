@@ -18,10 +18,23 @@ int main()
 	{
 		pPhys::Object *ball = new pPhys::Object();
 
-		ball->setShape(new pPhys::CircleShape(3)); //TODO: ball size not handled
+		ball->setShape(new pPhys::CircleShape(10)); //TODO: ball size not handled
 
 		ball->setPosition(pPhys::Vec2(0.f, 220.f));
 		ball->setVelocity(pPhys::Vec2(-50.f, 85.f));
+		ball->setKinematic(false);
+		ball->setMass(1.f);
+
+		world->addObject(ball);
+	}
+
+	{
+		pPhys::Object *ball = new pPhys::Object();
+
+		ball->setShape(new pPhys::CircleShape(35)); //TODO: ball size not handled
+
+		ball->setPosition(pPhys::Vec2(0.f, 320.f));
+		ball->setVelocity(pPhys::Vec2(-20.f, 35.f));
 		ball->setKinematic(false);
 		ball->setMass(1.f);
 
