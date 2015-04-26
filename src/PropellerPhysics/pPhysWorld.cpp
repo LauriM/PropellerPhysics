@@ -4,6 +4,8 @@
 #include <PropellerPhysics/pPhysCollisionChecker.h>
 #include <PropellerPhysics/pPhysCollisionResolver.h>
 
+#include <PropellerPhysics/pPhysCircleShape.h>
+
 #include <sstream>
 
 namespace pPhys
@@ -12,7 +14,7 @@ namespace pPhys
 	World::World(Vec2 gravity)
 		: gravity(gravity)
 		, debugDraw(NULL)
-		, substepCount(5)
+		, substepCount(25)
 	{ }
 
 	void World::addObject(Object *obj)
@@ -61,6 +63,8 @@ namespace pPhys
 			objects[i]->velocity += acceleration;
 
 			objects[i]->position += objects[i]->velocity;
+
+			objects[i]->stepTime = delta;
 		}
 
 		// Check for collisions (before moving the objects)
@@ -96,13 +100,25 @@ namespace pPhys
 					{
 						debugDraw->logDebug(std::string("hit!"));
 						CollisionResolver::resolveCollisions(objects[i], objects[a]);
+						// Calculate time for movement after the step
+
+						objects[i]->stepTime = delta - t; // how many percentages we managed to move before the hit
+						objects[a]->stepTime = delta - t; // how many percentages we managed to move before the hit
+
+						// move objects back one substep
+
+						objects[i]->setPosition(objects[i]->getPosition() - objects[i]->getVelocity() / substepCount);
+						objects[a]->setPosition(objects[a]->getPosition() - objects[a]->getVelocity() / substepCount);
+
 						break;
 					}
 				}
-
-				// return objects to the positions
-				objects[i]->setPosition(startPosObjectI);
-				objects[a]->setPosition(startPosObjectA);
+				if (hit == false)
+				{
+					// return objects to the positions, if hit happened, the objects are left where the substep detected the collision
+					objects[i]->setPosition(startPosObjectI);
+					objects[a]->setPosition(startPosObjectA);
+				}
 			}
 		}
 
@@ -113,7 +129,8 @@ namespace pPhys
 			if (objects[i]->isKinematic())
 				continue; // velocities are not calculated for kinematic objects
 
-			objects[i]->position += objects[i]->velocity;
+			pPhys::Vec2 dMov = objects[i]->velocity * objects[i]->stepTime;
+			objects[i]->position += dMov * objects[i]->stepTime;
 		}
 	}
 
@@ -128,7 +145,14 @@ namespace pPhys
 				continue;
 
 			debugDraw->positionEcho(objects[i]);
+
+			CircleShape *shape = dynamic_cast<CircleShape*>(objects[i]->getShape());
+
+			if (shape != NULL)
+				debugDraw->drawCircle(objects[i]->getPosition(), shape->getRadius());
 		}
+
+		debugDraw->flip();
 	}
 
 }

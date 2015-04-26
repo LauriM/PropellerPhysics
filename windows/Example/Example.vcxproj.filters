@@ -13,9 +13,15 @@
     <ClCompile Include="..\..\src\Example\TextDebugDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Example\SFMLDebugDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Example\TextDebugDraw.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Example\SFMLDebugDraw.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

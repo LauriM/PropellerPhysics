@@ -34,6 +34,10 @@ namespace pPhys {
 			drawLine(rightbottom, leftbottom);
 			drawLine(leftbottom, lefttop);
 		}
+
+		virtual void drawCircle(const pPhys::Vec2 &pos, const float size) { };
+
+		virtual void flip() { };
 	};
 }
 

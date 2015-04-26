@@ -48,6 +48,9 @@ namespace pPhys {
 		}
 
 		Shape *getShape() { return shape; }
+
+		// World related stuff
+		float stepTime;
 	};
 
 }
