@@ -12,7 +12,7 @@ namespace pPhys
 {
 
 	World::World(Vec2 gravity)
-		: gravity(gravity)
+		: gravity(gravity/10)
 		, debugDraw(NULL)
 		, substepCount(25)
 	{ }
@@ -90,6 +90,9 @@ namespace pPhys
 				for (float t = 0; t < delta; t += step) //step < delta ok ?
 				{
 					// move the objects 
+					pPhys::Vec2 preColPos_i = objects[i]->getPosition();
+					pPhys::Vec2 preColPos_a = objects[a]->getPosition();
+
 					objects[i]->setPosition(objects[i]->getPosition() + objects[i]->getVelocity() / substepCount);
 					objects[a]->setPosition(objects[a]->getPosition() + objects[a]->getVelocity() / substepCount);
 
@@ -105,10 +108,9 @@ namespace pPhys
 						objects[i]->stepTime = delta - t; // how many percentages we managed to move before the hit
 						objects[a]->stepTime = delta - t; // how many percentages we managed to move before the hit
 
-						// move objects back one substep
-
-						objects[i]->setPosition(objects[i]->getPosition() - objects[i]->getVelocity() / substepCount);
-						objects[a]->setPosition(objects[a]->getPosition() - objects[a]->getVelocity() / substepCount);
+						// move to substepped position before collision, steptime should have time moved with substepping
+						objects[i]->setPosition(preColPos_i);
+						objects[a]->setPosition(preColPos_a);
 
 						break;
 					}

@@ -3,6 +3,7 @@
 #include <PropellerPhysics/pPhysCircleShape.h>
 #include <PropellerPhysics/pPhysLineShape.h>
 #include <PropellerPhysics/pPhysObject.h>
+#include <PropellerPhysics/pPhysVector.h>
 
 namespace pPhys {
 
@@ -47,9 +48,11 @@ namespace pPhys {
 
 		Vec2 circleVel = circle->getVelocity();
 
+		//2 * N*N•V[i];
 		Vec2 temp = lineShape->normal * lineShape->normal.getDotProduct(circleVel);
 
-		circle->setVelocity(-(temp));
+		// TODO: the "non affected" x/y axis is resetted.
+		circle->setVelocity(-(temp)  * 0.8f);
 	}
 
 	void CollisionResolver::circleToCircle(CircleShape *a, CircleShape *b) { } //not implemented
