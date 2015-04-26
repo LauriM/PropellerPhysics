@@ -8,15 +8,15 @@ namespace pPhys {
 
 	class LineShape : public Shape
 	{
-	private:
-		float normal;
+	public:
+		Vec2 normal;
+		float distance;
 
 	public:
-		LineShape(float normal)
+		LineShape(Vec2 normal, float distance)
 			: normal(normal)
+			, distance(distance)
 		{ }
-
-		float getNormal() { return normal; }
 	};
 
 }

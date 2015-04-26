@@ -67,7 +67,7 @@ namespace pPhys
 
 			for (unsigned a = 0; a < objects.size(); ++a)
 			{
-				if (objects[i]->isKinematic())
+				if (objects[a]->isKinematic())
 					continue; // collision is handled the other way
 
 				if (objects[i] == objects[a])

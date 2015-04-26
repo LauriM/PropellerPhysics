@@ -15,18 +15,19 @@ int main()
 	world->setDebugDrawInterface(new TextDebugDraw());
 
 	{
-	pPhys::Object *ball = new pPhys::Object();
+		pPhys::Object *ball = new pPhys::Object();
 
 		ball->setShape(new pPhys::CircleShape(1));
 
 		ball->setPosition(pPhys::Vec2(0.f, 100.f));
-		ball->setVelocity(pPhys::Vec2(0.f, 15.f));
+		ball->setVelocity(pPhys::Vec2(0.f, 50.f));
 		ball->setKinematic(false);
 		ball->setMass(1.f);
 
 		world->addObject(ball);
 	}
 
+	/*
 	{
 		pPhys::Object *ball = new pPhys::Object();
 
@@ -37,14 +38,14 @@ int main()
 
 		world->addObject(ball);
 	}
+	*/
 
 	{
 		pPhys::Object *ground = new pPhys::Object();
 
-		// horizontal line at origo
-		ground->setShape(new pPhys::LineShape(0));
+		// With line, the position doesn't matter, its all in the lineshape object
+		ground->setShape(new pPhys::LineShape(pPhys::Vec2(0, 1), 0)); // horizontal line at origo
 		ground->setKinematic(true);
-		ground->setPosition(pPhys::Vec2(0.f, 1.f));
 
 		world->addObject(ground);
 	}

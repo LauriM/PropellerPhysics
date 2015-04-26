@@ -50,11 +50,16 @@ namespace pPhys {
 		Object *circle = circleShape->getParent();
 		Object *line = lineShape->getParent();
 
-		float distance = circle->getPosition().x * line->getPosition().x + circle->getPosition().y * lineShape->getNormal();
+		const Vec2 &circlePos = circle->getPosition();
+		//distance = P[i].x*Planes[j].a + P[i].y*Planes[j].b + Planes[j].c;
 
-		std::cout << "dist: " << distance << "\n";
+		// circle * line    +   circle * line + line.d
 
-		return distance < 0; //TODO: not implemented!
+		float dist = circlePos.x * lineShape->normal.x + circlePos.y * lineShape->normal.y + lineShape->distance;
+
+		//std::cout << "dist: " << dist << "\n";
+
+		return dist < 0;
 	}
 
 	bool CollisionChecker::circleToCircle(CircleShape *a, CircleShape *b)
