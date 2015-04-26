@@ -7,11 +7,13 @@
 
 namespace pPhys {
 
+	class Object;
+
 	class DebugDrawInterface
 	{
 	public:
 		// Print the position of the objects
-		virtual void positionEcho(const Vec2 &pos) { };
+		virtual void positionEcho(Object *object) { };
 
 		// Draw a line
 		virtual void drawLine(const Vec2 &start, const Vec2 &end) = 0;

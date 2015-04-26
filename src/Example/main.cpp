@@ -19,8 +19,8 @@ int main()
 
 		ball->setShape(new pPhys::CircleShape(1));
 
-		ball->setPosition(pPhys::Vec2(0.f, 100.f));
-		ball->setVelocity(pPhys::Vec2(0.f, 50.f));
+		ball->setPosition(pPhys::Vec2(0.f, 20.f));
+		ball->setVelocity(pPhys::Vec2(0.f, 15.f));
 		ball->setKinematic(false);
 		ball->setMass(1.f);
 
@@ -44,15 +44,15 @@ int main()
 		pPhys::Object *ground = new pPhys::Object();
 
 		// With line, the position doesn't matter, its all in the lineshape object
-		ground->setShape(new pPhys::LineShape(pPhys::Vec2(0, 1), 0)); // horizontal line at origo
+		ground->setShape(new pPhys::LineShape(pPhys::Vec2(0.1f, 1), 0)); // horizontal line at origo
 		ground->setKinematic(true);
 
 		world->addObject(ground);
 	}
 
-	for (unsigned i = 0; i < 60; ++i)
+	for (unsigned i = 0; i < 100; ++i)
 	{
-		world->step(0.1);
+		world->step(0.01);
 		world->drawWorld();
 	}
 

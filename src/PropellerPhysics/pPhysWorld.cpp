@@ -2,6 +2,9 @@
 #include <PropellerPhysics/pPhysWorld.h>
 #include <PropellerPhysics/pPhysDebugDrawInterface.h>
 #include <PropellerPhysics/pPhysCollisionChecker.h>
+#include <PropellerPhysics/pPhysCollisionResolver.h>
+
+#include <sstream>
 
 namespace pPhys
 {
@@ -9,7 +12,7 @@ namespace pPhys
 	World::World(Vec2 gravity)
 		: gravity(gravity)
 		, debugDraw(NULL)
-		, substepCount(25)
+		, substepCount(5)
 	{ }
 
 	void World::addObject(Object *obj)
@@ -92,6 +95,8 @@ namespace pPhys
 					if (hit == true)
 					{
 						debugDraw->logDebug(std::string("hit!"));
+						CollisionResolver::resolveCollisions(objects[i], objects[a]);
+						break;
 					}
 				}
 
@@ -100,6 +105,7 @@ namespace pPhys
 				objects[a]->setPosition(startPosObjectA);
 			}
 		}
+
 
 		// Apply velocities
 		for (unsigned i = 0; i < objects.size(); ++i)
@@ -118,7 +124,10 @@ namespace pPhys
 
 		for (unsigned i = 0; i < objects.size(); ++i)
 		{
-			debugDraw->positionEcho(objects[i]->getPosition());
+			if (objects[i]->isKinematic())
+				continue;
+
+			debugDraw->positionEcho(objects[i]);
 		}
 	}
 

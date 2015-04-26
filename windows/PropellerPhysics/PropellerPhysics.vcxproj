@@ -68,6 +68,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysCircleShape.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysCollisionChecker.h" />
+    <ClInclude Include="..\..\src\PropellerPhysics\pPhysCollisionResolver.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysDebugDrawInterface.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysLineShape.h" />
     <ClInclude Include="..\..\src\PropellerPhysics\pPhysMatrix.h" />
@@ -80,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysCollisionChecker.cpp" />
+    <ClCompile Include="..\..\src\PropellerPhysics\pPhysCollisionResolver.cpp" />
     <ClCompile Include="..\..\src\PropellerPhysics\pPhysWorld.cpp" />
   </ItemGroup>
   <ItemGroup>
