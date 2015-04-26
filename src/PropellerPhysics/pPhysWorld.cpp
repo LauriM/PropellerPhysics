@@ -14,7 +14,7 @@ namespace pPhys
 	World::World(Vec2 gravity)
 		: gravity(gravity/10)
 		, debugDraw(NULL)
-		, substepCount(25)
+		, substepCount(5)
 	{ }
 
 	void World::addObject(Object *obj)
@@ -56,6 +56,9 @@ namespace pPhys
 			if (objects[i]->isKinematic())
 				continue; // velocities are not calculated for kinematic objects
 
+			if (objects[i]->sleep)
+				continue;
+
 			Vec2 acceleration = gravity;
 
 			//TODO: handle impulse to acceleration
@@ -70,6 +73,9 @@ namespace pPhys
 		// Check for collisions (before moving the objects)
 		for (unsigned i = 0; i < objects.size(); ++i)
 		{
+			if (objects[i]->sleep)
+				continue; // don't process sleeppers until they are collided upon
+
 			//TODO: QuadTree or similar optimization would help here
 
 			for (unsigned a = 0; a < objects.size(); ++a)
@@ -130,6 +136,20 @@ namespace pPhys
 		{
 			if (objects[i]->isKinematic())
 				continue; // velocities are not calculated for kinematic objects
+
+			if (objects[i]->sleep)
+				continue;
+
+			float sleepTreshold = 0.2f;
+			if (objects[i]->velocity.x < sleepTreshold && objects[i]->velocity.x > -sleepTreshold)
+			{
+				if (objects[i]->velocity.y < sleepTreshold && objects[i]->velocity.y > -sleepTreshold);
+				{
+					objects[i]->sleep = true;
+					objects[i]->velocity.x = 0;
+					objects[i]->velocity.y = 0;
+				}
+			}
 
 			pPhys::Vec2 dMov = objects[i]->velocity * objects[i]->stepTime;
 			objects[i]->position += dMov * objects[i]->stepTime;

@@ -23,6 +23,7 @@ namespace pPhys {
 			, kinematic(false)
 			, shape(nullptr)
 			, mass(0)
+			, sleep(false)
 		{ }
 
 		// Allows direct access
@@ -51,6 +52,7 @@ namespace pPhys {
 
 		// World related stuff
 		float stepTime;
+		bool sleep;
 	};
 
 }
