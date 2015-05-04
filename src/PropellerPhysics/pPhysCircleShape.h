@@ -11,7 +11,7 @@ namespace pPhys {
 		float radius;
 
 	public:
-		CircleShape::CircleShape(float radius)
+		CircleShape(float radius)
 			: radius(radius)
 		{ }
 
