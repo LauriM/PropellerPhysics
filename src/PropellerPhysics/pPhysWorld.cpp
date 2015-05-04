@@ -19,7 +19,7 @@ namespace pPhys
 
 	void World::addObject(Object *obj)
 	{
-		if (obj->shape == nullptr)
+		if (obj->shape == NULL)
 		{
 			debugDraw->logWarning("Object doesn't have a shape! Ignoring addObject()");
 			return;

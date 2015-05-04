@@ -21,7 +21,7 @@ namespace pPhys {
 			: position(Vec2(0, 0))
 			, velocity(Vec2(0, 0))
 			, kinematic(false)
-			, shape(nullptr)
+			, shape(NULL)
 			, mass(0)
 			, sleep(false)
 		{ }
