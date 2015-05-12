@@ -51,8 +51,11 @@ namespace pPhys {
 		//2 * N*N•V[i];
 		Vec2 temp = lineShape->normal * lineShape->normal.getDotProduct(circleVel);
 
-		// TODO: the "non affected" x/y axis is resetted.
-		circle->setVelocity(-(temp)  * 0.3f);
+		//temp = temp * 2;
+
+		Vec2 newVel = circleVel + temp; // add new velocity as 'impulse'
+
+		circle->setVelocity(-newVel * 0.10);
 	}
 
 	void CollisionResolver::circleToCircle(CircleShape *a, CircleShape *b) { } //not implemented

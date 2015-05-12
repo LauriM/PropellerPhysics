@@ -14,7 +14,7 @@ namespace pPhys
 	World::World(Vec2 gravity)
 		: gravity(gravity/10)
 		, debugDraw(NULL)
-		, substepCount(5)
+		, substepCount(25)
 	{ }
 
 	void World::addObject(Object *obj)
@@ -140,15 +140,12 @@ namespace pPhys
 			if (objects[i]->sleep)
 				continue;
 
-			float sleepTreshold = 0.2f;
-			if (objects[i]->velocity.x < sleepTreshold && objects[i]->velocity.x > -sleepTreshold)
+			float sleepTreshold = 0.100f;
+			if (objects[i]->velocity.x < sleepTreshold && objects[i]->velocity.x > -sleepTreshold && objects[i]->velocity.y < sleepTreshold && objects[i]->velocity.y > -sleepTreshold)
 			{
-				if (objects[i]->velocity.y < sleepTreshold && objects[i]->velocity.y > -sleepTreshold);
-				{
-					objects[i]->sleep = true;
-					objects[i]->velocity.x = 0;
-					objects[i]->velocity.y = 0;
-				}
+				objects[i]->sleep = true;
+				objects[i]->velocity.x = 0;
+				objects[i]->velocity.y = 0;
 			}
 
 			pPhys::Vec2 dMov = objects[i]->velocity * objects[i]->stepTime;

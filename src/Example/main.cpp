@@ -11,7 +11,7 @@ int main()
 {
 	std::cout << "hello hahahaha\n";
 
-	pPhys::World *world = new pPhys::World(pPhys::Vec2(0.0, -9.81));
+	pPhys::World *world = new pPhys::World(pPhys::Vec2(0.0, -2.81));
 
 	world->setDebugDrawInterface(new SFMLDebugDraw());
 
@@ -20,8 +20,8 @@ int main()
 
 		ball->setShape(new pPhys::CircleShape(10)); //TODO: ball size not handled
 
-		ball->setPosition(pPhys::Vec2(0.f, 220.f));
-		ball->setVelocity(pPhys::Vec2(-50.f, 85.f));
+		ball->setPosition(pPhys::Vec2(0.f, 50.f));
+		ball->setVelocity(pPhys::Vec2(20.f, 20.f));
 		ball->setKinematic(false);
 		ball->setMass(1.f);
 
@@ -31,10 +31,10 @@ int main()
 	{
 		pPhys::Object *ball = new pPhys::Object();
 
-		ball->setShape(new pPhys::CircleShape(35)); //TODO: ball size not handled
+		ball->setShape(new pPhys::CircleShape(25)); //TODO: ball size not handled
 
-		ball->setPosition(pPhys::Vec2(0.f, 320.f));
-		ball->setVelocity(pPhys::Vec2(-20.f, 35.f));
+		ball->setPosition(pPhys::Vec2(0.f, 50.f));
+		ball->setVelocity(pPhys::Vec2(-20.f, 20.f));
 		ball->setKinematic(false);
 		ball->setMass(1.f);
 
@@ -58,7 +58,7 @@ int main()
 		pPhys::Object *ground = new pPhys::Object();
 
 		// With line, the position doesn't matter, its all in the lineshape object
-		ground->setShape(new pPhys::LineShape(pPhys::Vec2(0.f, 1), 28)); // horizontal line at origo
+		ground->setShape(new pPhys::LineShape(pPhys::Vec2(0.11f, 1), 200)); // horizontal line at origo
 		ground->setKinematic(true);
 
 		world->addObject(ground);
@@ -68,7 +68,7 @@ int main()
 		pPhys::Object *ground = new pPhys::Object();
 
 		// With line, the position doesn't matter, its all in the lineshape object
-		ground->setShape(new pPhys::LineShape(pPhys::Vec2(1, 0), 200)); 
+		ground->setShape(new pPhys::LineShape(pPhys::Vec2(1, 0.1), 200)); 
 		ground->setKinematic(true);
 
 		world->addObject(ground);
@@ -78,7 +78,7 @@ int main()
 		pPhys::Object *ground = new pPhys::Object();
 
 		// With line, the position doesn't matter, its all in the lineshape object
-		ground->setShape(new pPhys::LineShape(pPhys::Vec2(-1, 0), 200)); 
+		ground->setShape(new pPhys::LineShape(pPhys::Vec2(-1, 0.1), 200)); 
 		ground->setKinematic(true);
 
 		world->addObject(ground);
