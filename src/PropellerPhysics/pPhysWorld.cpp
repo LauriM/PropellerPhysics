@@ -14,7 +14,7 @@ namespace pPhys
 	World::World(Vec2 gravity)
 		: gravity(gravity/10)
 		, debugDraw(NULL)
-		, substepCount(25)
+		, substepCount(5)
 	{ }
 
 	void World::addObject(Object *obj)
@@ -172,6 +172,19 @@ namespace pPhys
 		}
 
 		debugDraw->flip();
+	}
+
+	void World::clearAllDynamicObjects()
+	{
+		for (unsigned i = 0; i < objects.size(); ++i)
+		{
+			if (objects[i]->isKinematic())
+				continue;
+
+			objects.erase(objects.begin() + i);
+
+			--i;
+		}
 	}
 
 }

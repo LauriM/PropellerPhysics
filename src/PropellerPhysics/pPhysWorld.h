@@ -36,6 +36,9 @@ namespace pPhys {
 		/* getters & setters for data */
 		bool isDebugDrawEnabled() const { return debugDrawEnabled; }
 		void setDebugDrawEnabled(const bool d) { debugDrawEnabled = d; }
+
+		// hack
+		void clearAllDynamicObjects();
 	};
 
 }

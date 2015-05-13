@@ -7,6 +7,11 @@
 #include "TextDebugDraw.h"
 #include "SFMLDebugDraw.h"
 
+float randomRange(int min, int max)
+{
+	return float(min + (rand() % (int)(max - min + 1)));
+}
+
 int main()
 {
 	std::cout << "hello hahahaha\n";
@@ -84,11 +89,41 @@ int main()
 		world->addObject(ground);
 	}
 
+	bool keyDown = false;
+
 	for (;;)
 	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			if (keyDown == false)
+			{
+				pPhys::Object *ball = new pPhys::Object();
+
+				ball->setShape(new pPhys::CircleShape(randomRange(1, 10)));
+
+				ball->setPosition(pPhys::Vec2(0.f, 50.f));
+				ball->setVelocity(pPhys::Vec2(randomRange(-20, 20), randomRange(-3, 30)));
+				ball->setKinematic(false);
+				ball->setMass(10.f);
+
+				world->addObject(ball);
+
+				keyDown = true;
+			}
+		}
+		else
+		{
+			keyDown = false;
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+		{
+			world->clearAllDynamicObjects();
+		}
+
 		world->step(1.f / 60.f);
 		world->drawWorld();
-		//sf::sleep(sf::Time(sf::seconds(1 / 260.f)));
+
 		sf::sleep(sf::Time(sf::seconds(1.f / 60.f)));
 	}
 

@@ -6,3 +6,5 @@ windows/PropellerPhysics/Debug/*
 windows/PropellerPhysics/Release/*
 *.suo
 *.user
+*.opensdf
+*.sdf
